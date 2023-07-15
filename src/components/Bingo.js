@@ -2,7 +2,7 @@ import { useState, useEffect ,useRef } from "react";
 import { Link } from "react-router-dom";
 import { updateDoc, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseConfig.js";
-import confetti from "https://cdn.skypack.dev/canvas-confetti";
+import Confetti from './Confetti.js';
 
 const ObstructLayer=()=>{
   return(
@@ -145,9 +145,10 @@ const Bingo = ({ roomId, creator, pname }) => {
                 updateRoomField(roomId, "win", "अज्ञात");
              }
             
-            confetti();
-            confetti();
-            
+            //confetti();
+            //confetti();
+            document.getElementById('confetti').click();
+            document.getElementById('confetti').click();
             
           }
         }
@@ -555,8 +556,7 @@ const Bingo = ({ roomId, creator, pname }) => {
         </svg>
             Restarting
         </button>
-
-
+        <Confetti/>
 
       </div>
     </>
