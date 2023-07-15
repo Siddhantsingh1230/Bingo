@@ -7,7 +7,7 @@ import confetti from "https://cdn.skypack.dev/canvas-confetti";
 const ObstructLayer=()=>{
   return(
     <>
-      <div class="obstruct"></div>
+      <div className="obstruct"></div>
     </>
     );
 }
@@ -182,7 +182,7 @@ const Bingo = ({ roomId, creator, pname }) => {
           updateRoomField(roomId,'start2',0);
           setStart(false);
           if(pWin){
-            let crownHtml='<i class="fa-solid fa-crown fa-flip" style={{color: "#ffffff"}}></i>';
+            let crownHtml='<i className="fa-solid fa-crown fa-flip" style={{color: "#ffffff"}}></i>';
             pWin.current.innerHTML=(data.win).toUpperCase()+" WON "+crownHtml;
             setTimeout(()=>{
             restartBtnRef.current.style.display="inline-flex";
@@ -238,7 +238,7 @@ const Bingo = ({ roomId, creator, pname }) => {
   const clicker = (num) => {
     if(winFlag!=true){
       
-    const spans = document.getElementsByClassName("box");
+    const spans = document.getElementsByclassNameName("box");
     for (let i = 0; i < spans.length; i++) {
       const pTag = spans[i].querySelector("p");
 
@@ -260,9 +260,9 @@ const Bingo = ({ roomId, creator, pname }) => {
       var x = document.getElementById("simpleToast");
 
       if (x) {
-        x.className = "show";
+        x.classNameName = "show";
         setTimeout(function () {
-          x.className = x.className.replace("show", "");
+          x.classNameName = x.classNameName.replace("show", "");
         }, 3000);
       }
       notified = true;
@@ -307,7 +307,7 @@ const Bingo = ({ roomId, creator, pname }) => {
     {
       showObstruct && (<ObstructLayer/>)
     }
-      <div class="bingoContainer">
+      <div className="bingoContainer">
         <div
           onClick={() => {
             if (creator) {
@@ -316,197 +316,197 @@ const Bingo = ({ roomId, creator, pname }) => {
               updateRoomField(roomId, "user2", false);
             }
           }}
-          class="back"
+          className="back"
         >
           <Link to="/">
-            <i class="fa-brands fa-uikit" style={{ color: "#ffffff" }}></i>
+            <i className="fa-brands fa-uikit" style={{ color: "#ffffff" }}></i>
           </Link>
         </div>
         <div
           onClick={() => {
             toggleFullScreen();
           }}
-          class="fullScr"
+          className="fullScr"
         >
-          <i class="fa-solid fa-expand" style={{ color: "#ffffff" }}></i>
+          <i className="fa-solid fa-expand" style={{ color: "#ffffff" }}></i>
         </div >
-        <div  class="playerName">
+        <div  className="playerName">
           <p ref={pWin}>{pname ? pname.toUpperCase() : "अज्ञात"}</p>
         </div>
-        <div class="main">
+        <div className="main">
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="00"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="01"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="02"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="03"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="04"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="10"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="11"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="12"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="13"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="14"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="20"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="21"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="22"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="23"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="24"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="30"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="31"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="32"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="33"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="34"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="40"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="41"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="42"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="43"
           ></span>
           <span
             onClick={(e) => {
               handleClick(e);
             }}
-            class="box"
+            className="box"
             id="44"
           ></span>
         </div>
@@ -534,20 +534,20 @@ const Bingo = ({ roomId, creator, pname }) => {
               updateRoomField(roomId, "start2", 1);
             }
           }}
-          class="notify"
+          className="notify"
           style={notifyStyle}
         >
-          <i class="fa-solid fa-bell" style={{ color: "#ffffff" }}></i>
+          <i className="fa-solid fa-bell" style={{ color: "#ffffff" }}></i>
         </div>
         <div id="simpleToast">
           <i
-            class="fa-solid fa-flag-checkered"
+            className="fa-solid fa-flag-checkered"
             style={{ color: "#000000" }}
           ></i>
           <span>Opponent is Ready</span>
         </div>
-        <button ref={restartBtnRef} class="button" type="button">
-          <svg viewBox="0 0 16 16" class="bi bi-arrow-repeat" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+        <button ref={restartBtnRef} className="button" type="button">
+          <svg viewBox="0 0 16 16" className="bi bi-arrow-repeat" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
           <path d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" fill-rule="evenodd"></path>
         </svg>
