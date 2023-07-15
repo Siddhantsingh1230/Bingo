@@ -1,13 +1,571 @@
+html,
 body {
+  width: 100%;
+  height: 100%;
+}
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  /* outline: 1px solid red;*/
+  user-select: none;
+  font-family: "Gilroy-Bold", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+.roomContainer {
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.imageContainer {
+  width: 80%;
+  height: 35%;
+  position: relative;
+  background-image: url("../public/images/image.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.title {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.title::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+  z-index: 1;
+  background: url("../public/images/arrow.png") center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0%;
+  scale: 0.3;
+  rotate: 50deg;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.title h1 {
+  color: white;
+  font-size: 3rem;
+  position: relative;
+  z-index: 2;
 }
+.title p {
+  margin-top: 1.7rem;
+  width: 70%;
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  color: grey;
+}
+.actions {
+  width: 80%;
+  height: 3rem;
+  background: #212529;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 2rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+.createRoom,
+.joinRoom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  border-radius: 0.8rem;
+  color: white;
+  transition: all ease 0.3s;
+}
+.createRoom p,
+.joinRoom p {
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  transition: all ease 0.2s;
+}
+#active {
+  background: white;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0.8rem;
+  left: -50%;
+  z-index: 1;
+  transition: all ease 0.3s;
+}
+.socialIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-top: 2.65rem;
+  gap: 2rem;
+}
+.socialIcons {
+  font-size: 1.8rem;
+}
+.socialIcons i {
+  transition: all ease 0.4s;
+}
+.socialIcons i:active {
+  scale: 0.67;
+  opacity: 0.7;
+}
+
+.createRoomContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.createRoomContainer .backBtn {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.3rem;
+  font-size: 1.4rem;
+  transition: all ease 0.3s;
+}
+.createRoomContainer .backBtn:active {
+  scale: 0.86;
+  opacity: 0.85;
+}
+.createRoomContainer .roomTitle {
+  width: 80%;
+  margin-top: 5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 4rem;
+}
+.createRoomContainer .roomTitle h1 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+
+.createRoomContainer .roomTitle p {
+  color: white;
+  font-size: 1.8rem;
+  opacity: 0.9;
+}
+.createRoomContainer .pname {
+  color: white;
+  border: none;
+  background: black;
+  outline: 1px solid #666a6d;
+  width: 86%;
+  border-radius: 0.8rem;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  
+}
+
+.createRoomContainer .roomId {
+  color: grey;
+  height: 3rem;
+  background: black;
+  outline: 1px solid #666a6d;
+  width: 86%;
+  border-radius: 0.8rem;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+.createRoomContainer #roomId {
+  user-select: text;
+  max-width: 80%;
+}
+.createRoomContainer .startBtn {
+  width: 80%;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  margin-top: 165%;
+  height: 3rem;
+  border-radius: 0.7rem;
+  transform: translateX(-50%);
+  transition: all ease 0.3s;
+}
+.startBtn p {
+  color: black;
+}
+.createRoomContainer .startBtn:active {
+  opacity: 0.8;
+}
+.createRoomContainer .startBtn p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.createRoomContainer .clip {
+  position: absolute;
+  right: 1rem;
+  transition: all ease 0.3s;
+}
+.createRoomContainer .clip:active {
+  opacity: 0.8;
+  scale: 0.8;
+}
+
+.joinRoomContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.joinRoomContainer .backBtn {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.3rem;
+  font-size: 1.4rem;
+  transition: all ease 0.3s;
+}
+.joinRoomContainer .backBtn:active {
+  scale: 0.86;
+  opacity: 0.85;
+}
+.joinRoomContainer .roomTitle {
+  width: 80%;
+  margin-top: 5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 4rem;
+}
+.joinRoomContainer .roomTitle h1 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+
+.joinRoomContainer .roomTitle p {
+  color: white;
+  font-size: 1.8rem;
+  opacity: 0.9;
+}
+.joinRoomContainer .pname {
+  color: white;
+  border: none;
+  background: black;
+  outline: 1px solid #666a6d;
+  width: 86%;
+  border-radius: 0.8rem;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.joinRoomContainer .startBtn {
+  width: 80%;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  margin-top: 165%;
+  height: 3rem;
+  border-radius: 0.7rem;
+  transform: translateX(-50%);
+  transition: all ease 0.3s;
+}
+
+.joinRoomContainer .startBtn:active {
+  opacity: 0.8;
+}
+.joinRoomContainer .startBtn p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Spinner CSS */
+.goog-te-spinner {
+  margin: 2px 0 0 2px;
+  animation: goog-te-spinner-rotator 1.4s linear infinite;
+  transform: translateY(-50%);
+}
+.goog-te-spinner-path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  stroke: #4285f4;
+  transform-origin: center;
+  animation: goog-te-spinner-dash 1.4s ease-in-out infinite;
+}
+@keyframes goog-te-spinner-rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes goog-te-spinner-dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+
+.containerSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+/* Bingo Game CSS */
+
+.bingoContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+.bingoContainer .back {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1.3rem;
+  left: 1.5rem;
+  opacity: 0.7;
+  transition: all ease 0.3s;
+  z-index: 9999;
+}
+.bingoContainer .fullScr {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1.3rem;
+  right: 1.5rem;
+  opacity: 0.7;
+  transition: all ease 0.3s;
+  z-index: 9999;
+}
+.bingoContainer .back:active,
+.bingoContainer .fullScr:active {
+  opacity: 1;
+  scale: 1.1;
+}
+.bingoContainer .main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  justify-items: center;
+  align-items: center;
+  background: black;
+  padding: 0.5rem;
+  border-radius: 0.45rem;
+}
+.box {
+  height: 3.5rem;
+  width: 3.5rem;
+  background: black;
+  outline: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease-in-out 0.25s;
+  border-radius: 0.45rem;
+}
+.box p {
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 650;
+  pointer-events: none;
+}
+.bingoContainer .playerName {
+  width: 80%;
+  color: white;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  top: 5rem;
+  font-weight: 500;
+  transition: all ease 0.2s;
+}
+.bingoContainer .playerName:active {
+  opacity: 1;
+}
+/* Notify Button */
+.bingoContainer .notify {
+  position: absolute;
+  bottom: 2rem;
+  background: #744fc6;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: all ease 0.3s;
+}
+.bingoContainer .notify:active {
+  scale: 0.8;
+}
+
+
+/* Toast Notification */
+#simpleToast {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: white;
+  color: black; 
+  text-align: center;
+  border-radius: 0.5rem; 
+  padding: 16px;
+  position: fixed;
+  z-index: 1; 
+  left: 50%; 
+  bottom: 30px; 
+  font-family: monospace;
+  line-hight: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#simpleToast span {
+  margin-left: 12px;
+  margin-top: 2px;
+}
+
+#simpleToast.show {
+  visibility: visible; 
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+#simpleToast i{
+  font-size: 1.25rem;
+}
+/* restart game btn */
+.button {
+  color: black;
+  position: absolute;
+  margin-top: 2.5rem;
+  background-color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  display: none;
+  align-items: center;
+  border: none;
+  transition: all ease 0.3s;
+  bottom: 4.6rem;
+}
+
+.button:active {
+  opacity: 0.86;
+  scale: 0.96;
+}
+
+.button svg {
+  display: inline;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  color: black;
+}
+
+.button svg {
+  animation: spin_357 0.5s linear infinite;
+}
+
+@keyframes spin_357 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Obstruct layer */
+.obstruct{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 99;
+}
+
+
